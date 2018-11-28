@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import store from '../store';
-import { INCREMENT_COUNT } from '../store/constants/counter'
+import { INCREMENT_COUNT } from '../store/constants/button'
 
 // ----------------------------------------------------- //
 
@@ -17,8 +17,8 @@ const Button = () => (
 // ----------------------------------------------------- //
 
 const Count = () => (
-  <div>
-    count { store.getState().button.count }
+  <div className="count">
+    clicked { store.getState().button.count } times
   </div>
 )
 

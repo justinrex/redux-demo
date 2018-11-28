@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { INCREMENT_COUNT } from './constants/counter'
+import { INCREMENT_COUNT } from './constants/button'
 
 // const reducer = combineReducers({});
 
