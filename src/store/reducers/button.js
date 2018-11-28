@@ -1,4 +1,4 @@
-import { INCREMENT_COUNT, INCREMENT_HOVER } from './constants/counter'
+import { INCREMENT_COUNT, INCREMENT_HOVER } from '../constants/counter'
 
 const initialState = {
   count: 0,

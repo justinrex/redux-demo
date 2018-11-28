@@ -3,10 +3,21 @@
   height: 100%;
   justify-content: center;
   align-items: center;
+  color: #ff0090;
 }
 
 .clickableButton {
-  border: 1px solid black;
+  border: 3px solid #ff0090;
+  border-radius: 5px;
   font-size: 40px;
   margin-bottom: 20px;
+  color: #ff0090;
+}
+
+.count {
+  text-align: center;
+}
+
+button:focus {
+  outline:0;
 }
