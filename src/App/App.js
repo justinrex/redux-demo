@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createSelector } from 'reselect'
 import './App.css';
 
 import { incrementCount, incrementHover } from '../store/actions/button'
@@ -16,46 +17,82 @@ const Button = ({ incrementCount, incrementHover }) => (
   </button>
 )
 
-// ----------------------------------------------------- //
-const Count = ({ count = 0 }) => {
-  console.log('rendering count')
-
-  return (
-  <div className="count">
-    clicked { count } times
-  </div>
-)
-  }
-
-const mapStateToProps = (state) => ({
-  count: state.button.count // buttonCountSelector(state)
-})
-
-const CountContainer = connect(mapStateToProps)(Count);
-
-
-
-// ----------------------------------------------------- //
-
-const App = ({ incrementCount, incrementHover }) => {
-  console.log('render app')
-  return (
-  <div className="App">
-      <div>
-        <Button incrementCount={incrementCount} incrementHover={incrementHover} />
-        <CountContainer />
-      </div>
-  </div>
-)
-  };
-
-
-
 const mapDispatchToProps = {
   incrementCount,
   incrementHover
 }
 
-const AppContainer = connect(null, mapDispatchToProps)(App);
+const ButtonContainer = connect(null, mapDispatchToProps)(Button);
 
-export default AppContainer;
+
+// ----------------------------------------------------- //
+const Count = ({ count }) => {
+  console.log('rendering count')
+
+  return (
+    <div className="count">
+      clicked { count } times
+    </div>
+  )
+}
+
+// ----------------------------------------------------- //
+
+const mapStateToProps = (state) => ({
+  count: state.button.count
+})
+
+const CountContainer = connect(mapStateToProps)(Count);
+
+// ----------------------------------------------------- //
+
+const OddNumber = ({ odd }) => {
+  console.log('odd number render')
+
+  return (
+    <div>
+      <br /><br /><br />
+      { odd && 'ODD NUMBER'}
+    </div>
+  )
+}
+
+const countSelector = (state) => state.button.count
+const oddNumbersSelector = (state) => state.button.oddNumbers
+
+const isOddNumber =
+  createSelector(
+    [countSelector, oddNumbersSelector],
+    (count, oddNumbers) => {
+      console.log('calculating odd number')
+      return oddNumbers.includes(count)
+    }
+  )
+
+// const isOddNumber = (state) => {
+//   console.log('calculating odd number')
+
+//   const { count, oddNumbers } = state.button;
+
+//   return oddNumbers.includes(count)
+// }
+
+const mapOddStateToProps = (state) => ({
+  odd: isOddNumber(state)
+})
+
+const OddNumberContainer = connect(mapOddStateToProps)(OddNumber);
+
+// ----------------------------------------------------- //
+
+const App = () => (
+  <div className="App">
+      <div>
+        <ButtonContainer />
+        <CountContainer />
+        <OddNumberContainer />
+      </div>
+  </div>
+)
+
+export default App;

@@ -2,7 +2,8 @@ import { INCREMENT_COUNT, INCREMENT_HOVER } from '../constants/button'
 
 const initialState = {
   count: 0,
-  hover: 0
+  hover: 0,
+  oddNumbers: [ 1, 3, 5, 7]
 }
 
 export default (state = initialState, action) => {
