@@ -5,6 +5,7 @@ import {
   compose
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import analytics from './middleware/analytics';
 import button from './reducers/button';
 import rootSaga from './sagas';
 
@@ -15,7 +16,7 @@ const combinedReducer = combineReducers({
 });
 
 const sagaMiddleware = createSagaMiddleware();
-const middleware = applyMiddleware(sagaMiddleware);
+const middleware = applyMiddleware(analytics, sagaMiddleware);
 
 const store = createStore(
   combinedReducer,
