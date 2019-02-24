@@ -1,19 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import buttonCountSelector from '../store/selectors/button/count'
 
-const Count = ({ count }) => {
-  console.log('rendering count')
-
-  return (
-    <div className="count">
-      clicked { count } times
-    </div>
-  )
-}
-
+const Count = ({ count }) => (
+  <div
+    className="count"
+    data-tag="Count"
+  >
+    clicked { count } times
+  </div>
+)
 
 const mapStateToProps = (state) => ({
-  count: state.button.count
+  count: buttonCountSelector(state)
 })
 
 export default connect(mapStateToProps)(Count);

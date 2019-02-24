@@ -1,32 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
+import buttonCountSelector from '../store/selectors/button/count';
+import oddNumbersSelector from '../store/selectors/button/oddNumbers';
 
-const OddNumber = ({ odd }) => {
-  console.log('odd number render')
+const OddNumber = ({ odd }) => (
+  <div data-tag="OddNumber">
+    <br />
+    <br />
+    <br />
+    { odd && 'ODD NUMBER'}
+  </div>
+);
 
-  return (
-    <div>
-      <br /><br /><br />
-      { odd && 'ODD NUMBER'}
-    </div>
-  )
-}
+const isOddNumber = createSelector(
+  [buttonCountSelector, oddNumbersSelector],
+  (count, oddNumbers) => oddNumbers.includes(count),
+);
 
-const countSelector = (state) => state.button.count
-const oddNumbersSelector = (state) => state.button.oddNumbers
-
-const isOddNumber =
-  createSelector(
-    [countSelector, oddNumbersSelector],
-    (count, oddNumbers) => {
-      console.log('calculating odd number')
-      return oddNumbers.includes(count)
-    }
-  )
-
-const mapOddStateToProps = (state) => ({
+const mapStateToProps = state => ({
   odd: isOddNumber(state)
-})
+});
 
-export default connect(mapOddStateToProps)(OddNumber);
+export default connect(mapStateToProps)(OddNumber);

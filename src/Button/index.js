@@ -1,20 +1,10 @@
-import React from 'react'
-import gql from "graphql-tag";
-import { Mutation } from "react-apollo";
-import ButtonContainer from './container'
+import { connect } from 'react-redux';
+import { incrementCount, incrementHover } from '../store/actions/button';
+import Button from './component';
 
-const TRACK_BREADCRUMB = gql`
-  mutation TrackBreadCrumb($element: String! $type: String!) {
-    createBreadCrumb(element: $element, type: $type) {
-      _id
-    }
-  }
-`;
+const mapDispatchToProps = {
+  incrementCount,
+  incrementHover
+};
 
-const WithBreadCrumbs = () => (
-    <Mutation mutation={TRACK_BREADCRUMB}>
-      {(trackBreadCrumb) => <ButtonContainer trackBreadCrumb={trackBreadCrumb} />}
-    </Mutation>
-)
-
-export default WithBreadCrumbs
+export default connect(null, mapDispatchToProps)(Button);

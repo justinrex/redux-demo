@@ -1,16 +1,16 @@
 import React from 'react';
 
-const Button = ({ trackBreadCrumb, incrementCount, incrementHover, }) => (
+const Button = ({ incrementCount, incrementHover }) => (
   <button
     className="clickableButton"
-    onClick={(event) => {
-      incrementCount();
-      trackBreadCrumb({ variables: { element: "button", type: "click" }});
-    }}
+    onClick={incrementCount}
     onMouseOver={incrementHover}
+    data-tag="Button"
+    type="button"
   >
     Click me
   </button>
-)
+);
 
-export default Button
+export default Button;
+
