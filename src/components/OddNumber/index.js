@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
-import buttonCountSelector from '../store/selectors/button/count';
-import oddNumbersSelector from '../store/selectors/button/oddNumbers';
+import buttonCountSelector from '../../store/selectors/button/count';
+import oddNumbersSelector from '../../store/selectors/button/oddNumbers';
 
 const OddNumber = ({ odd }) => (
   <div data-tag="OddNumber">
