@@ -1,4 +1,4 @@
-import buttonSelector from './';
+import buttonSelector from '.';
 
 const DEFAULT = 0;
 

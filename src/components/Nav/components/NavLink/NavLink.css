@@ -1,0 +1,10 @@
+.Nav__link {
+  margin: 12px;
+  padding: 5px;
+  color: #ff0090;
+  text-decoration: inherit;
+}
+
+.active {
+  border-bottom: 3px solid;
+}

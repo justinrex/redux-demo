@@ -1,3 +1,3 @@
 const DEFAULT = {};
 
-export default (state) => state.button || DEFAULT;
+export default state => state.button || DEFAULT;

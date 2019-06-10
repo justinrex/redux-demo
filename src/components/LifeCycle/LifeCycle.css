@@ -1,0 +1,11 @@
+.LifeCycle {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+}
+
+input {
+  color: #ff0090;
+  box-shadow: 0 0 3px #ff0090;
+  width: 250px;
+}
