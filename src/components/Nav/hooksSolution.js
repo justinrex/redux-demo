@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import NavLink from './components/NavLink';
 import './Nav.css';
 
@@ -8,16 +8,25 @@ const links = [
   'Refs'
 ];
 
-const Nav = () => (
-  <div className="Nav">
-    {links.map((text, index) => (
-      <NavLink
-        text={text}
-        key={index}
-      />
-    ))}
-  </div>
-);
+const Nav = () => {
+  const [active, setActive] = useState(0);
+  const handleClick = index => () => { setActive(index); };
+
+  return (
+    <div className="Nav">
+      {links.map((text, index) => (
+        <NavLink
+          text={text}
+          key={index}
+          active={active === index}
+          handleClick={handleClick(index)}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default Nav;
 
 // class Nav extends Component {
 //   constructor(props) {
@@ -29,12 +38,13 @@ const Nav = () => (
 //   }
 
 //   handleClick(index) {
-//     return () => this.setState({ active: index });
+//     return () => {
+//       this.setState({ active: index });
+//     };
 //   }
 
 //   render() {
 //     const { active } = this.state;
-
 //     return (
 //       <div className="Nav">
 //         {links.map((text, index) => (
@@ -42,6 +52,7 @@ const Nav = () => (
 //             active={active === index}
 //             handleClick={this.handleClick(index)}
 //             text={text}
+//             index={index}
 //             key={index}
 //           />
 //         ))}
@@ -49,5 +60,3 @@ const Nav = () => (
 //     );
 //   }
 // }
-
-export default Nav;
