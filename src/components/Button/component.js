@@ -10,7 +10,6 @@ const handleClick = ({ count, incrementCount, setCount }) => () => {
 
 const Button = ({ incrementCount, incrementHover }) => {
   const [count, setCount] = useState(0);
-  // console.log(count);
 
   return (
     <button
@@ -21,7 +20,7 @@ const Button = ({ incrementCount, incrementHover }) => {
       data-tag="IncrementButton"
       type="button"
     >
-    Click me
+    CLICK ME
     </button>
   );
 };
