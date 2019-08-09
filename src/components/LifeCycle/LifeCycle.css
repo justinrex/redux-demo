@@ -2,10 +2,12 @@
   display: flex;
   justify-content: center;
   height: 30px;
+  margin-top: 150px;
 }
 
 input {
   color: #ff0090;
-  box-shadow: 0 0 3px #ff0090;
+  height: 30px;
   width: 250px;
+  outline: none;
 }

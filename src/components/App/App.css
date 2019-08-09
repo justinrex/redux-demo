@@ -16,11 +16,21 @@
 }
 
 .clickableButton {
-  border: 3px solid #ff0090;
+  border: 0px solid #ff0090;
   border-radius: 5px;
-  font-size: 40px;
-  margin-bottom: 20px;
-  color: #ff0090;
+  box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+  font-size: 20px;
+  margin: 20px 0;
+  background-color: #ff0090;
+  color: #fff;
+  padding: 10px 16px;
+  outline:0;
+}
+
+.clickableButton:hover {
+  transition: box-shadow 135ms cubic-bezier(.4,0,.2,1),width 235ms cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 1px 3px 1px rgba(60,64,67,.2), 0 2px 8px 4px rgba(60,64,67,.1);
+  background-color: #eb0085;
 }
 
 .count {

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import './LifeCycle.css';
 
 class LifeCycle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'About'
+      title: 'Lifecycle'
     };
     this.updateTitle = this.updateTitle.bind(this);
   }

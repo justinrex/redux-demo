@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import './Refs.css';
 
 class Refs extends Component {
@@ -20,7 +20,7 @@ class Refs extends Component {
     return (
       <div className="Refs">
         <input ref={this.setRef} />
-        <button type="button" onClick={this.handleClick}>focus Input</button>
+        <button className="clickableButton" type="button" onClick={this.handleClick}>FOCUS INPUT</button>
       </div>
     );
   }
