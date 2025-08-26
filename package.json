@@ -11,7 +11,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "^2.1.5",
+    "react-scripts": "^5.0.1",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.1",
     "reselect": "^4.0.0"
@@ -33,7 +33,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "5.12.0",
+    "eslint": "9.32.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
