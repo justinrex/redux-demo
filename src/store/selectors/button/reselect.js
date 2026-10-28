@@ -1,14 +1,7 @@
 import { createSelector } from 'reselect';
-// import buttonSelector from '.';
-
-const DEFAULT = [];
-const buttonSelector = () => DEFAULT;
+import count from './count';
 
 export default createSelector(
-  [buttonSelector],
-  (button) => {
-    console.log('reselecting');
-
-    return button.length * 20;
-  }
+  [count, (_state, multiplier = 20) => multiplier],
+  (value, multiplier) => value * multiplier,
 );

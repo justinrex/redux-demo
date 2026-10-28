@@ -1,30 +1,8 @@
-import {
-  applyMiddleware,
-  combineReducers,
-  createStore,
-  compose
-} from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import analytics from './middleware/analytics';
+import { combineReducers, legacy_createStore as createStore } from 'redux';
 import button from './reducers/button';
-import rootSaga from './sagas';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export function createDemoStore() {
+  return createStore(combineReducers({ button }));
+}
 
-const combinedReducer = combineReducers({
-  button
-});
-
-const sagaMiddleware = createSagaMiddleware();
-const middleware = applyMiddleware(analytics, sagaMiddleware);
-
-const store = createStore(
-  combinedReducer,
-  composeEnhancers(
-    middleware
-  )
-);
-
-sagaMiddleware.run(rootSaga);
-
-export default store;
+export default createDemoStore();

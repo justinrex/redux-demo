@@ -1,13 +1,1 @@
-.LifeCycle {
-  display: flex;
-  justify-content: center;
-  height: 30px;
-  margin-top: 150px;
-}
-
-input {
-  color: #ff0090;
-  height: 30px;
-  width: 250px;
-  outline: none;
-}
+.LifeCycle input { width: min(100%, 24rem); }

@@ -1,4 +1,1 @@
-.Nav {
-  display: flex;
-  justify-content: flex-end;
-}
+.Nav { display: flex; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid #d4d8df; padding-block: 1rem; }
